@@ -9,6 +9,8 @@
 #
 # stdout is the protocol channel. Nothing may print.
 
+from std.io import RawFileDescriptor
+
 from conformance_pb import (
     ConformanceRequest,
     ConformanceResponse,
@@ -28,7 +30,7 @@ from proto import (
 
 
 def read_exact(
-    mut stdin: FileDescriptor, n: Int
+    mut stdin: RawFileDescriptor, n: Int
 ) raises -> Optional[List[Byte]]:
     var out = List[Byte]()
     while len(out) < n:
@@ -101,8 +103,8 @@ def handle(request: ConformanceRequest) raises -> ConformanceResponse:
 
 
 def main() raises:
-    var stdin = FileDescriptor(0)
-    var stdout = FileDescriptor(1)
+    var stdin = RawFileDescriptor(0)
+    var stdout = RawFileDescriptor(1)
     while True:
         var header = read_exact(stdin, 4)
         if not header:
