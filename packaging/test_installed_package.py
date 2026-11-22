@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-CHANNELS = ["https://conda.modular.com/max", "conda-forge"]
+CHANNELS = ["https://conda.modular.com/max-nightly", "conda-forge"]
 
 
 def run(command: list[str]) -> None:
