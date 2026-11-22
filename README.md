@@ -7,6 +7,8 @@
 Protocol Buffers for **Mojo 1.0**: proto3 binary encoding, proto3 JSON, and a
 `protoc` plugin. The runtime depends only on the Mojo standard library.
 
+This mirror locks the Mojo build that antinuous/research pins, and a research toolchain bump moves this lock in the same batch.
+
 **[Compliance report](https://nsalerni.github.io/protomojo/COMPLIANCE.html)**
 ([Markdown](COMPLIANCE.md)) is regenerated on every CI run.
 
