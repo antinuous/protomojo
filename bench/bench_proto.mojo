@@ -33,7 +33,9 @@ def bench_time() -> Float64:
     return 0.005 if is_smoke() else 0.5
 
 
-def run_capped[F: def() raises](f: F, secs: Float64) raises -> Float64:
+def run_capped[
+    F: def() raises & ImplicitlyCopyable
+](f: F, secs: Float64) raises -> Float64:
     """Runs a benchmark bounded by `secs` and returns the mean in ns.
 
     `std.benchmark.run` keeps iterating until max_runtime_secs by default;
